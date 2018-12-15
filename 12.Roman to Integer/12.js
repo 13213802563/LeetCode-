@@ -10,7 +10,6 @@ var romanToInt = function (s) {
             case 'I':
                 sum += 1;
                 break;
-                break;
             case 'V':
                 if (s[pointer - 1] && s[pointer - 1] === 'I') {
                     sum += 4;

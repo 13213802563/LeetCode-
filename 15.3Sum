@@ -1,0 +1,39 @@
+//@param{number[]} nums   -1 0 1
+//@return {number[][]}     0
+
+var threeSum=function(nums){
+	nums.sort((a,b)=>a-b);
+	console.log(nums);
+	let ans=[];
+	let len=nums.length;
+	
+	for(let i=0;i<len;i++){
+		console.log(i);
+		if(i&&nums[i]===nums[i-1]) continue;
+		let target=-nums[i]; ///另外两个数的和
+		console.log(target);
+		let[start,end]=[i+1,len-1];;
+		while(start<end){  //-1  1
+			let sum=nums[start]+nums[end];
+			if(sum>target){//
+				end--;
+			}else if(sum<target){
+				start++;
+			}else{
+				ans.push([nums[i],nums[start],nums[end]]);	
+				console.log(ans)
+				while(nums[start]===nums[start+1]){
+					start++;
+					start++;
+				};
+				while(nums[end]===nums[end-1]){
+					end--;
+					end--;
+				}
+			}
+		}
+	}
+	return ans;
+}
+var nums=[-1,0,1,2,-1,-4]
+console.log(threeSum(nums));
